@@ -126,7 +126,7 @@ The [resume] what build by typst
 
 <!-- links -->
 
-[resume]: FIXME
+[resume]: https://github.com/mhrdq8i/cv-builder/blob/master/Mehrdad-Qasemkhani-CV.pdf
 [More Read]: https://github.com/typst/typst/blob/main/README.md
 [docs]: https://typst.app/docs/
 [app]: https://typst.app/
