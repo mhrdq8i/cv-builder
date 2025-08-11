@@ -82,7 +82,7 @@ typst compile file.typ
 typst compile path/to/source.typ path/to/output.pdf
 ```
 
-### Example
+#### Example
 
 ```sh
 typst compile /home/mehrdad/cv-builder/main.typ /home/mehrdad/cv-builder/MehrdadQasemkhani-CV.pdf --root /home/mehrdad/cv-builder
