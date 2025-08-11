@@ -2,9 +2,9 @@
   columns: (1fr, 1fr),
   gutter: 50pt,
   align(left)[
-    #text(size: 18pt, weight: "bold")[Mehrdad Qasemkhani] \
-    #text(size: 12pt)[Senior DevOps Engineer] \
-    #text(size: 10pt)[Asia/Tehran +3:30] \
+    #text(size: 19pt, weight: "bold")[Mehrdad Qasemkhani] \
+    #text(size: 10pt)[Software Engineer, Sire Reliability Engineer] \
+    #text(size: 8pt)[Asia/Tehran +3:30] \
   ],
   align(right)[
     \
