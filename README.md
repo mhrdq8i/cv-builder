@@ -82,6 +82,12 @@ typst compile file.typ
 typst compile path/to/source.typ path/to/output.pdf
 ```
 
+### Example
+
+```sh
+typst compile /home/mehrdad/cv-builder/main.typ /home/mehrdad/cv-builder/MehrdadQasemkhani-CV.pdf --root /home/mehrdad/cv-builder
+```
+
 You can also watch source files and automatically recompile on changes. This is
 faster than compiling from scratch each time because Typst has incremental
 compilation.
