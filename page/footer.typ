@@ -1,5 +1,5 @@
 // Footer setup
-#import "utils.typ" as u
+#import "../utils.typ" as u
 
 #let ftrctx = context [
   #if counter(page).at(here()) == counter(page).final() [

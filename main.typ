@@ -1,23 +1,26 @@
 
 // Setup the page
-#import "footer.typ" as f
+#import "page/footer.typ" as f
 
 #set page(
   paper: "a4",
   footer: f.footer,
 )
-#set text(font: "Arial", size: 10pt)
+#set text(font: "Ubuntu Mono", size: 10pt)
 
 // Header
-#include "header.typ"
+#include "page/header.typ"
 
 // About Section
 #heading[About Me]
-#include "about_me.typ"
+#include "page/about_me.typ"
 
 // Work Experience Section
 #set heading(level: 1, numbering: none)
-#heading[Experience]
+#heading[
+  #set text(font: "Ubuntu", size: 12pt, weight: "bold")
+  Experience
+]
 
 // Include individual experiences
 #include "jobs/fanap.typ"
@@ -27,7 +30,10 @@
 \
 
 // Education Section
-#heading[Education]
+#heading[
+  #set text(font: "Ubuntu", size: 12pt, weight: "bold")
+  Education
+]
 
 // Include education entries
 #include "edus/shamsipour.typ"
@@ -37,7 +43,10 @@
 
 // Focus Section
 #set heading(level: 1, numbering: none)
-#heading[More Focus on]
+#heading[
+  #set text(font: "Ubuntu", size: 12pt, weight: "bold")
+  More Focus on
+]
 
 // Include individual experiences
 #include "jobs/focus.typ"
