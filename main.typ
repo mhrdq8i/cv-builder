@@ -2,15 +2,13 @@
 // Import modules
 #import "utils.typ" as u
 
-/// FIXME!
-/// https://typst.app/docs/reference/introspection/
-// #if 1 < 2 {
-//   let ftrctx = u.pnoctx + u.updtctx
-// } else {
-//   let ftrctx = u.pnoctx
-// }
-
-#let ftrctx = u.pnoctx + u.updtctx
+#let ftrctx = context [
+  #if counter(page).at(here()) == counter(page).final() [
+    #u.pnoctx #u.updtctx
+  ] else [
+    #u.pnoctx
+  ]
+]
 
 // Setup the page
 #set page(
@@ -19,9 +17,9 @@
     #set align(left)
     #text(
       size: 7pt,
-      [#ftrctx]
+      [#ftrctx],
     )
-  ]
+  ],
 )
 #set text(font: "Arial", size: 10pt)
 

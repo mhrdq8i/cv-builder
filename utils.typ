@@ -46,7 +46,7 @@
 #let updtctx = context [
     #set align(left)
     #text(
-      size: 3.5pt,
+      size: 3pt,
       [LastUpdated: #formatted_date]
     )
 ]
