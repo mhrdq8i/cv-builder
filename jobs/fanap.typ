@@ -24,6 +24,6 @@
     "Synchronize PostgreSQL databases using Bucardo in active/active mode.",
     "Load-balance HTTP (Layer 7) & TCP (Layer 4) traffic using HAProxy.",
     "Use Kubernetes as the container orchestration platform.",
-    "Use Ingress to handle HTTP requests in the Kubernetes cluster."
+    "Use Ingress to handle HTTP requests in the Kubernetes cluster. \n\n\n"
   )
 )

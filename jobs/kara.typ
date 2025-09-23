@@ -9,7 +9,7 @@
   responsibilities: (
 
   "Analyzed, designed, and developed RESTful API applications using Python, Flask, Neo4j, PostgreSQL, and Kong to serve a ton of subscribers.",
-  "Developed comprehensive Unit-tests and Integration-tests."
+  "Developed comprehensive Unit-tests and Integration-tests.\n"
 
   )
 )

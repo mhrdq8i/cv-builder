@@ -11,6 +11,7 @@
     \
     #text(size: 10.2pt)[📞 +98 (938) 5200 818] \
     #text(size: 10.2pt)[🔗 #link("https://linkedin.com/in/mq8i/")] \
-    #text(size: 10.2pt)[✉️ #link("mailto:qasemkhani.mehrdad@gmail.com")]
+    #text(size: 10.2pt)[✉️ #link("mailto:qasemkhani.mehrdad@gmail.com")]\
+    #text("\n\n")
   ],
 )

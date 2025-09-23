@@ -6,7 +6,10 @@
   paper: "a4",
   footer: f.footer,
 )
-#set text(font: "Ubuntu Mono", size: 10pt)
+#set text(
+  font: "Ubuntu Mono",
+  size: 10pt,
+)
 
 // Header
 #include "page/header.typ"
@@ -18,11 +21,16 @@
 // Work Experience Section
 #set heading(level: 1, numbering: none)
 #heading[
-  #set text(font: "Ubuntu", size: 12pt, weight: "bold")
+  #set text(
+    font: "Ubuntu",
+    size: 12pt,
+    weight: "bold",
+  )
   Experience
 ]
 
 // Include individual experiences
+#include "jobs/rahgozin.typ"
 #include "jobs/fanap.typ"
 #include "jobs/respina.typ"
 #include "jobs/kara.typ"
@@ -31,7 +39,11 @@
 
 // Education Section
 #heading[
-  #set text(font: "Ubuntu", size: 12pt, weight: "bold")
+  #set text(
+    font: "Ubuntu",
+    size: 12pt,
+    weight: "bold",
+  )
   Education
 ]
 
@@ -44,7 +56,11 @@
 // Focus Section
 #set heading(level: 1, numbering: none)
 #heading[
-  #set text(font: "Ubuntu", size: 12pt, weight: "bold")
+  #set text(
+    font: "Ubuntu",
+    size: 12pt,
+    weight: "bold",
+  )
   More Focus on
 ]
 
