@@ -3,7 +3,7 @@
 
 #u.experience(
   company: "Fanap Infrastructure",
-  title: "DevOps Engineer",
+  title: "Senior DevOps Engineer",
   duration: "May 2021 – Mar 2025",
   location: "Tehran, Iran",
   responsibilities: (

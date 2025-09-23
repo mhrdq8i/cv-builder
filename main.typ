@@ -15,7 +15,14 @@
 #include "page/header.typ"
 
 // About Section
-#heading[About Me]
+#heading[
+  #set text(
+    font: "Dejavu Sans Mono",
+    size: 12.5pt,
+    weight: "bold",
+  )
+  About Me
+]
 #include "page/about_me.typ"
 
 // Work Experience Section
@@ -26,7 +33,7 @@
     size: 12.5pt,
     weight: "bold",
   )
-  Experience
+  #text("Experience")
 ]
 
 // Include individual experiences
@@ -44,7 +51,7 @@
     size: 12pt,
     weight: "bold",
   )
-  Education
+  #text("Education")
 ]
 
 // Include education entries
@@ -61,7 +68,7 @@
     size: 11.5pt,
     weight: "bold",
   )
-  More Focus on
+  #text("More Focus on")
 ]
 
 // Include individual experiences
