@@ -22,8 +22,8 @@
 #set heading(level: 1, numbering: none)
 #heading[
   #set text(
-    font: "Ubuntu",
-    size: 12pt,
+    font: "Dejavu Sans Mono",
+    size: 12.5pt,
     weight: "bold",
   )
   Experience
@@ -40,7 +40,7 @@
 // Education Section
 #heading[
   #set text(
-    font: "Ubuntu",
+    font: "Dejavu Sans Mono",
     size: 12pt,
     weight: "bold",
   )
@@ -57,8 +57,8 @@
 #set heading(level: 1, numbering: none)
 #heading[
   #set text(
-    font: "Ubuntu",
-    size: 12pt,
+    font: "Dejavu Sans Mono",
+    size: 11.5pt,
     weight: "bold",
   )
   More Focus on
