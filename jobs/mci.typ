@@ -2,14 +2,14 @@
 
 
 #u.experience(
-  company: "Rahgozin Rayane - [My/Shop] MCI",
-  title: "Senior Site Reliability Engineering",
+  company: "Hamrah Aval - [My/Shop] MCI",
+  title: "SRE Team Lead",
   duration: "Mar 2025 – Now",
   location: "Tehran, Iran",
   responsibilities: (
     "Led a team of 6 young engineers, focusing on SRE best practices, incident management, and customer support.",
     "Implementing Google SRE best practices, in the company.",
-    "Suggesting some solution of chaos engineering, including disaster recovery, active active replication, and more based-on SLOs/SLIs",
+    "Suggesting some solution of chaos engineering, including disaster recovery, active active replication, and more based-on SLOs/SLIs.",
     "Managing Rancher clusters, to handle more than 50M customers [My/Shop] MCI.",
     "Head of front-line group's of commanders to catch real time incidents.",
     "Finding innovative solutions, for better customer experience.",

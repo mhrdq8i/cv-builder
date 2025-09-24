@@ -7,7 +7,7 @@
   footer: f.footer,
 )
 #set text(
-  font: "Ubuntu Mono",
+  font: "Times New Roman",
   size: 10pt,
 )
 
@@ -17,11 +17,11 @@
 // About Section
 #heading[
   #set text(
-    font: "Dejavu Sans Mono",
-    size: 12.5pt,
+    font: "CodeNewRoman Nerd Font",
+    size: 13.5pt,
     weight: "bold",
   )
-  About Me
+  #text("About Me")
 ]
 #include "page/about_me.typ"
 
@@ -29,15 +29,16 @@
 #set heading(level: 1, numbering: none)
 #heading[
   #set text(
-    font: "Dejavu Sans Mono",
-    size: 12.5pt,
+    font: "CodeNewRoman Nerd Font",
+    size: 13.5pt,
     weight: "bold",
+    style: "oblique",
   )
   #text("Experience")
 ]
 
 // Include individual experiences
-#include "jobs/rahgozin.typ"
+#include "jobs/mci.typ"
 #include "jobs/fanap.typ"
 #include "jobs/respina.typ"
 #include "jobs/kara.typ"
@@ -47,9 +48,10 @@
 // Education Section
 #heading[
   #set text(
-    font: "Dejavu Sans Mono",
-    size: 12pt,
+    font: "CodeNewRoman Nerd Font",
+    size: 14pt,
     weight: "bold",
+    style: "oblique",
   )
   #text("Education")
 ]
@@ -64,7 +66,7 @@
 #set heading(level: 1, numbering: none)
 #heading[
   #set text(
-    font: "Dejavu Sans Mono",
+    font: "CodeNewRoman Nerd Font",
     size: 11.5pt,
     weight: "bold",
   )
