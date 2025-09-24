@@ -3,7 +3,7 @@
   gutter: 50pt,
   align(left)[
     #text(size: 19pt, weight: "bold")[Mehrdad Qasemkhani] \
-    #text(size: 11pt)[Senior Software Engineer] \
+    #text(size: 13pt)[Senior Software Engineer] \
     #text(size: 11pt)[Site Reliability Engineer] \
     #text(size: 8pt)[Asia/Tehran +3:30] \
   ],

@@ -25,8 +25,9 @@
 ]
 #include "page/about_me.typ"
 
+
 // Work Experience Section
-#set heading(level: 1, numbering: none)
+#set heading(level: 3, numbering: none)
 #heading[
   #set text(
     font: "CodeNewRoman Nerd Font",
@@ -34,7 +35,16 @@
     weight: "bold",
     style: "oblique",
   )
-  #text("Experience")
+  #text("Experience:")
+]
+
+// Delimiter
+#set heading(level: 1, numbering: none)
+#heading[
+  #set text(
+    size: 3.5pt,
+  )
+  #text("")
 ]
 
 // Include individual experiences
@@ -53,7 +63,16 @@
     weight: "bold",
     style: "oblique",
   )
-  #text("Education")
+  #text("Educations:")
+]
+
+// Delimiter
+#set heading(level: 1, numbering: none)
+#heading[
+  #set text(
+    size: 3.5pt,
+  )
+  #text("")
 ]
 
 // Include education entries
