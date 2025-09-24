@@ -1,6 +1,9 @@
-
 // Setup the page
 #import "page/footer.typ" as f
+
+// Colors
+#let primary = rgb("#1F4E79")
+#let secondary = rgb("#555")
 
 #set page(
   paper: "a4",
@@ -28,18 +31,19 @@
 
 // Work Experience Section
 #set heading(level: 3, numbering: none)
-#heading[
-  #set text(
-    font: "CodeNewRoman Nerd Font",
-    size: 13.5pt,
-    weight: "bold",
-    style: "oblique",
-  )
-  #text("Experience:")
+#align(center)[
+  #heading[
+    #set text(
+      font: "CodeNewRoman Nerd Font",
+      size: 13.5pt,
+      weight: "bold",
+      style: "oblique",
+    )
+    #text("Experience")
+  ]
 ]
 
 // Delimiter
-#set heading(level: 1, numbering: none)
 #heading[
   #set text(
     size: 3.5pt,
@@ -56,18 +60,20 @@
 \
 
 // Education Section
-#heading[
-  #set text(
-    font: "CodeNewRoman Nerd Font",
-    size: 14pt,
-    weight: "bold",
-    style: "oblique",
-  )
-  #text("Educations:")
+#set heading(level: 3, numbering: none)
+#align(center)[
+  #heading[
+    #set text(
+      font: "CodeNewRoman Nerd Font",
+      size: 14pt,
+      weight: "bold",
+      style: "oblique",
+    )
+    #text("Education")
+  ]
 ]
 
 // Delimiter
-#set heading(level: 1, numbering: none)
 #heading[
   #set text(
     size: 3.5pt,

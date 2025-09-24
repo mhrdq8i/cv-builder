@@ -82,7 +82,7 @@ typst compile file.typ
 typst compile path/to/source.typ path/to/output.pdf
 ```
 
-#### Example
+### Example
 
 ```sh
 typst compile /home/mehrdad/cv-builder/main.typ /home/mehrdad/cv-builder/MehrdadQasemkhani-CV.pdf --root /home/mehrdad/cv-builder
@@ -110,6 +110,8 @@ typst fonts --font-path path/to/fonts
 # Or via environment variable (Linux syntax).
 TYPST_FONT_PATHS=path/to/fonts typst fonts
 ```
+
+You can also download [NerdFont], and search the [NerdSymbols].
 
 For other CLI subcommands and options, see below:
 
@@ -151,3 +153,5 @@ The [resume] what build by typst
 [packages]: https://github.com/typst/packages/
 [`comemo`]: https://github.com/typst/comemo/
 [snap]: https://snapcraft.io/typst
+[NerdFont]: https://www.nerdfonts.com/font-downloads
+[NerdSymbols]: https://www.nerdfonts.com/cheat-sheet

@@ -4,21 +4,21 @@
   title: none,
   duration: none,
   location: none,
-  responsibilities: ()
+  responsibilities: (),
 ) = {
   grid(
     columns: (1fr, 1fr),
     gutter: 10pt,
     align(left)[
-      #text(size: 12pt, weight: "bold")[#company] \
-      #text(size: 10pt, weight: "bold")[#title] \
-      #text(size: 8pt)[#duration] \
-      #text(size: 9pt, fill: gray)[#location] \
-    ]
+      #text(size: 12pt, weight: "bold", font: "DejaVu Sans Mono")[#company] \
+      #text(size: 10pt, weight: "bold", font: "CodeNewRoman Nerd Font")[#title] \
+      #text(size: 6pt, font: "0xProto Nerd Font")[#duration] \
+      #text(size: 7pt, fill: gray, font: "Hurmit Nerd Font")[#location] \
+    ],
   )
   text(size: 10pt)[
-    #for responsibility in responsibilities [
-      - #responsibility
+    #for res in responsibilities [
+      - #res
     ]
   ]
 }
@@ -28,25 +28,33 @@
 #let month_index = datetime.today().month()
 #let months = (
   "",
-  "January", "February", "March",
-  "April", "May", "June",
-  "July", "August", "September",
-  "October", "November", "December"
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 )
 
 #let formatted_date = [
   #months.at(month_index) #today.year()
 ]
 
-#let pnoctx = context [
-    #set align(right)
-    #here().page()
+#let page_number = context [
+  #set align(right)
+  #here().page()
 ]
 
-#let updtctx = context [
-    #set align(left)
-    #text(
-      size: 3pt,
-      [LastUpdated: #formatted_date]
-    )
+#let update_context = context [
+  #set align(left)
+  #text(
+    size: 3pt,
+    [LastUpdated: #formatted_date],
+  )
 ]

@@ -1,11 +1,11 @@
 // Footer setup
 #import "../utils.typ" as u
 
-#let ftrctx = context [
+#let footer_context = context [
   #if counter(page).at(here()) == counter(page).final() [
-    #u.pnoctx #u.updtctx
+    #u.page_number #u.update_context
   ] else [
-    #u.pnoctx
+    #u.page_number
   ]
 ]
 
@@ -13,6 +13,6 @@
   #set align(left)
   #text(
     size: 7pt,
-    [#ftrctx],
+    [#footer_context],
   )
 ]

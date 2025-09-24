@@ -32,7 +32,7 @@
   responsibilities: (
 
     "Developed Asterisk RESTful Interface (ARI) applications using Python and the Django framework.",
-    "Developed Asterisk Call-App-Manager using pure Python over the Asterisk RESTful Interface (ARI). "
+    "Developed Asterisk Call-App-Manager using pure Python over the Asterisk RESTful Interface (ARI). \n\n\n"
 
   )
 )
