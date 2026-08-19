@@ -39,8 +39,8 @@ jobs:
       # redistributable. main.typ lists it as the fallback face.
       - name: Install system fonts
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends fonts-dejavu-core fonts-texgyre
+          sudo apt update -y
+          sudo apt install -y --no-install-recommends fonts-dejavu-core fonts-texgyre
 
       - name: Cache Nerd Fonts
         id: font-cache

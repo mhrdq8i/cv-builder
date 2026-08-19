@@ -55,6 +55,10 @@
   #set align(left)
   #text(
     size: 3pt,
-    [LastUpdated: #formatted_date],
+    weight: "regular",
+    [
+      LastUpdated: #formatted_date \
+      Made by #link("https://typst.app/")[Typst]
+    ],
   )
 ]
