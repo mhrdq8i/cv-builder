@@ -65,7 +65,10 @@ jobs:
         uses: actions/cache@v4
         with:
           path: fonts
-          key: fonts-${{ env.NERD_FONTS_VERSION }}-termes-${{ env.TERMES_VERSION }}
+          # Hashing this workflow means any edit to the font list below
+          # invalidates the cache automatically, instead of silently serving a
+          # stale fonts/ dir that is missing a newly added family.
+          key: fonts-${{ env.NERD_FONTS_VERSION }}-termes-${{ env.TERMES_VERSION }}-${{ hashFiles('.github/workflows/build-cv.yml') }}
 
       # Hermit's patched family is named "Hurmit"; Recursive supplies the
       # RecMonoCasual / RecMonoDuotone / RecMonoLinear families;
