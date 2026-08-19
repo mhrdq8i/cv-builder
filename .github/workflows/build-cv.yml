@@ -65,17 +65,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: fonts
-          # Hashing this workflow means any edit to the font list below
-          # invalidates the cache automatically, instead of silently serving a
-          # stale fonts/ dir that is missing a newly added family.
           key: fonts-${{ env.NERD_FONTS_VERSION }}-termes-${{ env.TERMES_VERSION }}-${{ hashFiles('.github/workflows/build-cv.yml') }}
 
-      # Hermit's patched family is named "Hurmit"; Recursive supplies the
-      # RecMonoCasual / RecMonoDuotone / RecMonoLinear families;
-      # NerdFontsSymbolsOnly supplies "Symbols Nerd Font Mono", which the
-      # nerd-icons package uses for the header icons. TeX Gyre Termes is the
-      # body face (a free Times clone); it has no Alpine package, so it comes
-      # straight from GUST.
       - name: Download fonts
         if: steps.font-cache.outputs.cache-hit != 'true'
         run: |
@@ -97,8 +88,6 @@ jobs:
           }
           cat build.log
 
-      # Checks the warnings from the real build above, so a font that silently
-      # falls back can never reach the published PDF.
       - name: Verify every requested font resolved
         run: |
           missing=$(grep -i "unknown font family" build.log || true)
@@ -122,7 +111,6 @@ jobs:
         if: github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
-          # Lets gh resolve the repo directly instead of shelling out to git.
           GH_REPO: ${{ github.repository }}
         run: |
           if gh release view "${RELEASE_TAG}" >/dev/null 2>&1; then
