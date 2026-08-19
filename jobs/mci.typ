@@ -4,7 +4,7 @@
 #u.experience(
   company: "Hamrah Aval - [My/Shop] MCI",
   title: "SRE Team Lead",
-  duration: "Mar 2025 – Now",
+  duration: "Mar 2025 – Dec 2025",
   location: "Tehran, Iran",
   responsibilities: (
     "Led a team of 6 young engineers, focusing on SRE best practices, incident management, and customer support.",

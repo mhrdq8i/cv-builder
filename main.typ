@@ -52,6 +52,7 @@
 ]
 
 // Include individual experiences
+#include "jobs/cloudir.typ"
 #include "jobs/mci.typ"
 #include "jobs/fanap.typ"
 #include "jobs/respina.typ"
