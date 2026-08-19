@@ -5,34 +5,35 @@
 #u.experience(
   company: "Respina Network & Beyond",
   title: "DevOps Engineer",
-  duration: "Feb 2020 - Apr 2021",
+  duration: "Feb 2020 – Apr 2021",
   location: "Tehran, Iran",
   responsibilities: (
 
-    "Expertise in VoIP & Cloud Telecommunication Technologies.",
+    "Specialized in VoIP & cloud telecommunication technologies.",
     "Developed Communications Platform as a Service (CPaaS) solutions.",
-    "Proficient in Session Initiation Protocol (SIP).",
-    "Configured and maintained Kamailio SIP-Server using the signaling section.",
+    "Worked extensively with the Session Initiation Protocol (SIP).",
+    "Configured and maintained Kamailio SIP-Server on the signaling layer.",
     "Deployed and managed Asterisk & FreeSWITCH soft-switch platforms.",
     "Maintained Respina SIP-Trunk services and HostedPBX solutions.",
-    "Implemented SIP & HTTP Load Balancing.",
-    "Achieved High-Availability over SIP & HTTP protocols via VRRP.",
+    "Implemented SIP & HTTP load balancing.",
+    "Achieved high availability over SIP & HTTP protocols via VRRP.",
     "Dockerized services using Docker Compose.",
     "Automated the entire build process using GitLab CI (Continuous Integration).",
-    "Persisted objects using MinIO object storage."
+    "Persisted objects using MinIO object storage.",
 
-  )
+  ),
 )
 
 // Respina Python
 #u.experience(
+  company: "Respina Network & Beyond",
   title: "Python Developer",
-  duration: "Jun 2019 - Feb 2020",
+  duration: "Jun 2019 – Feb 2020",
   location: "Tehran, Iran",
   responsibilities: (
 
     "Developed Asterisk RESTful Interface (ARI) applications using Python and the Django framework.",
-    "Developed Asterisk Call-App-Manager using pure Python over the Asterisk RESTful Interface (ARI). \n\n\n"
+    "Developed Asterisk Call-App-Manager using pure Python over the Asterisk RESTful Interface (ARI). \n\n\n",
 
-  )
+  ),
 )
