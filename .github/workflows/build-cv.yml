@@ -45,6 +45,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Container jobs run as root while the workspace is owned by the runner
+      # user, so git refuses it as "dubious ownership". actions/checkout marks
+      # the directory safe only for itself, not for later run steps.
+      - name: Trust the workspace
+        run: git config --global --add safe.directory "${GITHUB_WORKSPACE}"
+
       # The musl target is the native fit for Alpine.
       - name: Install Typst
         run: |
@@ -106,6 +112,8 @@ jobs:
         if: github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
+          # Lets gh resolve the repo directly instead of shelling out to git.
+          GH_REPO: ${{ github.repository }}
         run: |
           if gh release view "${RELEASE_TAG}" >/dev/null 2>&1; then
             gh release upload "${RELEASE_TAG}" "${PDF_NAME}" --clobber
