@@ -18,40 +18,54 @@ permissions:
 env:
   TYPST_VERSION: "0.13.1"
   NERD_FONTS_VERSION: "v3.5.0"
+  TERMES_VERSION: "2.004"
   PDF_NAME: "MehrdadQasemkhani-CV.pdf"
   RELEASE_TAG: "latest"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: alpine:3.22
+
+    # Alpine ships busybox ash, not bash, so every run step uses sh.
+    defaults:
+      run:
+        shell: sh
+
     steps:
+      # Must run before anything else: the base image has neither git (which
+      # actions/checkout needs) nor the tools the later steps rely on.
+      - name: Install container prerequisites
+        run: |
+          apk add --no-cache \
+            git curl tar xz unzip github-cli \
+            fontconfig font-dejavu
+
       - name: Checkout
         uses: actions/checkout@v4
 
+      # The musl target is the native fit for Alpine.
       - name: Install Typst
         run: |
           curl -fsSL "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz" \
             | tar -xJ
-          sudo install -m 0755 typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
+          mv typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
+          chmod 0755 /usr/local/bin/typst
           typst --version
 
-      # TeX Gyre Termes stands in for Times New Roman, which is not
-      # redistributable. main.typ lists it as the fallback face.
-      - name: Install system fonts
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends fonts-dejavu-core fonts-texgyre
-
-      - name: Cache Nerd Fonts
+      - name: Cache fonts
         id: font-cache
         uses: actions/cache@v4
         with:
           path: fonts
-          key: nerd-fonts-${{ env.NERD_FONTS_VERSION }}
+          key: fonts-${{ env.NERD_FONTS_VERSION }}-termes-${{ env.TERMES_VERSION }}
 
       # Hermit's patched family is named "Hurmit"; Recursive supplies the
-      # RecMonoCasual / RecMonoDuotone / RecMonoLinear families.
-      - name: Download Nerd Fonts
+      # RecMonoCasual / RecMonoDuotone / RecMonoLinear families. TeX Gyre Termes
+      # stands in for Times New Roman, which is not redistributable and has no
+      # Alpine package - main.typ lists it as the fallback face.
+      - name: Download fonts
         if: steps.font-cache.outputs.cache-hit != 'true'
         run: |
           mkdir -p fonts
@@ -60,6 +74,9 @@ jobs:
               "https://github.com/ryanoasis/nerd-fonts/releases/download/${NERD_FONTS_VERSION}/${family}.zip"
             unzip -qo "${family}.zip" -d "fonts/${family}"
           done
+          curl -fsSL -o termes.zip \
+            "https://www.gust.org.pl/projects/e-foundry/tex-gyre/termes/qtm${TERMES_VERSION}otf.zip"
+          unzip -qo termes.zip -d fonts/termes
 
       - name: Build PDF
         run: typst compile main.typ --font-path fonts "${PDF_NAME}"
