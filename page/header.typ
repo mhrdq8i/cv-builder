@@ -24,7 +24,7 @@
     #text(
       size: 9pt,
       font: "RecMonoLinear Nerd Font",
-    )[Site Reliability Engineer] \
+    )[Platform Engineer] \
 
     #text(
       size: 8pt,
@@ -51,7 +51,7 @@
     #text(
       size: 8pt,
       font: "RecMonoCasual Nerd Font",
-    )[ #link("https://linkedin.com/in/mq8i/")] \
+    )[ #link("https://www.linkedin.com/in/mhrdq8i/")] \
 
     #text(
       size: 8.3pt,

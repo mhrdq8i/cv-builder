@@ -1,0 +1,99 @@
+name: Build CV
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "**.typ"
+      - ".github/workflows/build-cv.yml"
+  pull_request:
+    paths:
+      - "**.typ"
+  workflow_dispatch:
+
+# Needed to create/update the release that hosts the PDF.
+permissions:
+  contents: write
+
+env:
+  TYPST_VERSION: "0.13.1"
+  NERD_FONTS_VERSION: "v3.5.0"
+  PDF_NAME: "MehrdadQasemkhani-CV.pdf"
+  RELEASE_TAG: "latest"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Typst
+        run: |
+          curl -fsSL "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz" \
+            | tar -xJ
+          sudo install -m 0755 typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
+          typst --version
+
+      # TeX Gyre Termes stands in for Times New Roman, which is not
+      # redistributable. main.typ lists it as the fallback face.
+      - name: Install system fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends fonts-dejavu-core fonts-texgyre
+
+      - name: Cache Nerd Fonts
+        id: font-cache
+        uses: actions/cache@v4
+        with:
+          path: fonts
+          key: nerd-fonts-${{ env.NERD_FONTS_VERSION }}
+
+      # Hermit's patched family is named "Hurmit"; Recursive supplies the
+      # RecMonoCasual / RecMonoDuotone / RecMonoLinear families.
+      - name: Download Nerd Fonts
+        if: steps.font-cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p fonts
+          for family in 0xProto CodeNewRoman Hermit Recursive; do
+            curl -fsSL -o "${family}.zip" \
+              "https://github.com/ryanoasis/nerd-fonts/releases/download/${NERD_FONTS_VERSION}/${family}.zip"
+            unzip -qo "${family}.zip" -d "fonts/${family}"
+          done
+
+      - name: Build PDF
+        run: typst compile main.typ --font-path fonts "${PDF_NAME}"
+
+      - name: Verify every requested font resolved
+        run: |
+          missing=$(typst compile main.typ --font-path fonts /dev/null 2>&1 \
+            | grep -i "unknown font family" \
+            | grep -iv "times new roman" || true)
+          if [ -n "$missing" ]; then
+            echo "::error::Fonts failed to resolve:"
+            echo "$missing"
+            exit 1
+          fi
+          echo "All fonts resolved (Times New Roman falls back to TeX Gyre Termes by design)."
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdf
+          path: ${{ env.PDF_NAME }}
+          if-no-files-found: error
+
+      # Publishes to a stable URL:
+      # https://github.com/mhrdq8i/cv-builder/releases/latest/download/MehrdadQasemkhani-CV.pdf
+      - name: Publish PDF to release
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${RELEASE_TAG}" >/dev/null 2>&1; then
+            gh release upload "${RELEASE_TAG}" "${PDF_NAME}" --clobber
+          else
+            gh release create "${RELEASE_TAG}" "${PDF_NAME}" \
+              --title "Latest CV" \
+              --notes "Automatically built from ${GITHUB_SHA}. Always the newest build."
+          fi

@@ -10,7 +10,7 @@
   footer: f.footer,
 )
 #set text(
-  font: "Times New Roman",
+  font: ("Times New Roman", "TeX Gyre Termes"),
   size: 10pt,
 )
 
